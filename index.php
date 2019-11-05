@@ -1,3 +1,21 @@
+<?php
+
+  $dbhost = "127.0.0.1";
+  $dbname = "DBQuizz";
+  $username = "root";
+  $password = "root";
+
+  try {
+    $conn= new PDO("mysql:host=$dbhost;dbname=$dbname", $username,$password);
+
+  } catch (PDOException $exception) {
+    die ($exception);
+  }
+
+  $query="SELECT Themes.id, Themes.nom, Themes.logo, count Questionnaires.id as NBQuest FROM Themes JOIN Questionnaires ON Themes.id = Questionnaires.id_Theme"
+
+?>
+        
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -10,19 +28,16 @@
 
     <div>
 
-      <form>
-        <select class="form-control" id="exampleFormControlSelect1" placeholder="Thème">
-          <option>Bande animé</option>
-          <option>Célebritée</option>
-          <option>Cinéma</option>
-          <option>Humour</option>
-          <option>Jeux vidéos</option>
-          <option>Manga</option>
-          <option>Musique</option>
-          <option>Télévision</option>
-          <option>Programmation</option>
-        </select>
-      </form>
+      <?php
+
+        foreach ($conn->query($query) as $theme) {
+          echo('<div>');
+          echo('La liste est chargé');
+          echo('<img src="' . $theme['logo'] . '" width="50" height="50">');
+          echo('</div>');
+        }
+
+      ?>
 
     </div>
     
