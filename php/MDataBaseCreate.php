@@ -2,7 +2,7 @@
 /*---------------------------------------------------------------------------
 DataCase Connection Data
 ---------------------------------------------------------------------------*/
-$servername = "localhost" ;
+$servername = "127.0.0.1" ;
 $rootUserName="root";
 $rootPass="";
 $username = "DBQuizzUser" ;
@@ -74,7 +74,8 @@ $status= $conn->prepare(
 $theme= $conn->prepare(
     "CREATE TABLE IF NOT EXISTS Themes(
         id INTEGER AUTO_INCREMENT PRIMARY KEY, 
-        nom TEXT
+        nom TEXT,
+        logo TEXT,
     )"
 );
     /* Table Questionnaire */
