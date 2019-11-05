@@ -28,12 +28,7 @@
   </div>
 </form>
 
-
 <p style="color : #26a69a;">Saisir ci dessous vos questions (10 questions maximum)</p>
-
-
-
-
 
 <div class="container">
   <div class="row">
