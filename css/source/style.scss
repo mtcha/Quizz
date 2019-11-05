@@ -1,0 +1,22 @@
+/* sass --watch style.scss ../style.css */
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+
+$font: 'Work Sans', sans-serif;
+
+body {
+
+
+
+    footer {
+
+
+        
+        p {
+            font-family: $font;
+            text-align: center;
+        }
+
+    }
+
+}
