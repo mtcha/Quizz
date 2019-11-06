@@ -2,9 +2,11 @@
 /*---------------------------------------------------------------------------
 DataCase Connection Data
 ---------------------------------------------------------------------------*/
-$servername = "127.0.0.1" ;
+
+$servername = "localhost" ; /* Lucas 127.0.0.1 */
+
 $rootUserName="root";
-$rootPass="";
+$rootPass=""; /* root */
 $username = "DBQuizzUser" ;
 $password = "gen03.Quizz.JLM" ;
 $dbname="DBQuizz";
@@ -13,7 +15,7 @@ $dbname="DBQuizz";
 Database Create
 ---------------------------------------------------------------------------*/
 try {
-    $dbh = new PDO("mysql:host=$servername", $rootUserName); //Connection to MySql
+    $dbh = new PDO("mysql:host=$servername", $rootUserName, $rootPass); //Connection to MySql
 
 /* DataBase Creation, User Creation with no Global Privileges but all on this DB. */
     $dbh ->exec("CREATE DATABASE IF NOT EXISTS $dbname DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci;
