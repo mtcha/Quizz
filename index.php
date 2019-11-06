@@ -8,28 +8,7 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
 
-<<<<<<< HEAD
-  
-      
-=======
-    <div>
 
-      <form>
-        <select class="form-control" id="exampleFormControlSelect1" placeholder="Thème">
-          <option>Bande animé</option>
-          <option>Célebritée</option>
-          <option>Cinéma</option>
-          <option>Humour</option>
-          <option>Jeux vidéos</option>
-          <option>Manga</option>
-          <option>Musique</option>
-          <option>Télévision</option>
-          <option>Programmation</option>
-        </select>
-      </form>
-
-    </div>
->>>>>>> 557c2e62c3c7358985ced54df68c142118a981b4
     
     
   <?php include('php/Vfooter.php'); ?>
