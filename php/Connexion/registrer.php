@@ -24,8 +24,10 @@ if(isset($_POST['register'])){
     
     //Retrieve the field values from our registration form.
     $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-    $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;
-    
+    if(!empty($_POST['password'])&& $_POST['password']==$_POST['password2']){
+        $pass = !empty($_POST['password']) ? trim($_POST['password']) : null;}
+    else {die("Votre password n\'est pas correctement recopier.");}
+    $mailadres = !empty($_POST['mail']) ? trim($_POST['mail']) : null;
     //TO ADD: Error checking (username characters, password length, etc).
     //Basically, you will need to add your own error checking BEFORE
     //the prepared statement is built and executed.
@@ -58,20 +60,27 @@ if(isset($_POST['register'])){
     
     //Prepare our INSERT statement.
     //Remember: We are inserting a new row into our users table.
-    $sql = "INSERT INTO Utilisateurs (pseudo, password) VALUES (:username, :password)";
+    $sql = "INSERT INTO Utilisateurs (pseudo, password, mail, id_Role) VALUES (:username, :password, :mail, 1)";
     $stmt = $pdo->prepare($sql);
     
     //Bind our variables.
     $stmt->bindValue(':username', $username);
     $stmt->bindValue(':password', $passwordHash);
- 
+    $stmt->bindValue(':mail', $mailadres);
+
     //Execute the statement and insert the new account.
     $result = $stmt->execute();
     
     //If the signup process is successful.
     if($result){
         //What you do here is up to you!
-        echo 'Thank you for registering with our website.';
+        //Provide the user with a login session.
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['logged_in'] = time();
+        
+        //Redirect to our protected page, which we called home.php
+        header('Location: home.php');
+        exit;
     }
     
 }
@@ -90,6 +99,10 @@ if(isset($_POST['register'])){
             <input type="text" id="username" name="username"><br>
             <label for="password">Password</label>
             <input type="text" id="password" name="password"><br>
+            <label for="password2">Confirm your Password</label>
+            <input type="text" id="password2" name="password2"><br>
+            <label for="mail">Mail</label>
+            <input type="text" id="mail" name="mail"><br>
             <input type="submit" name="register" value="Register"></button>
         </form>
     </body>
