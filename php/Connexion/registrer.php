@@ -95,14 +95,10 @@ if(isset($_POST['register'])){
     <body>
         <h1>Register</h1>
         <form action="registrer.php" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password</label>
-            <input type="text" id="password" name="password"><br>
-            <label for="password2">Confirm your Password</label>
-            <input type="text" id="password2" name="password2"><br>
-            <label for="mail">Mail</label>
-            <input type="text" id="mail" name="mail"><br>
+            <input type="text" id="username" name="username" placeholder="Choisissez un pseudo"><br>
+            <input type="text" id="password" name="password" placeholder="Choisissez un Mot de Passe"><br>
+            <input type="text" id="password2" name="password2" placeholder="Veuillez recopier votre Mot de Passe"><br>
+            <input type="text" id="mail" name="mail" placeholder="Veuillez indiquer votre e-mail."><br>
             <input type="submit" name="register" value="Register"></button>
         </form>
     </body>
