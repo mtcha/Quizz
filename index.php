@@ -10,7 +10,7 @@
 
     
       <p>Hello world! This is HTML5 Boilerplate.</p>
-    
+      <a href="php/Connexion2/login.php">Go to</a>
     
   <?php include('php/Vfooter.php'); ?>
     
